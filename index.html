@@ -136,10 +136,18 @@
 
     /* HERO */
     #hero {
-      min-height: 100vh; display: grid;
-      grid-template-columns: 1fr 420px;
-      align-items: center; padding: 100px 52px 80px; gap: 32px;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 100px 52px 80px;
       position: relative; overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      align-items: center;
+      gap: 64px;
+      width: 100%;
+      max-width: 1100px;
     }
     .hero-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 55% 65% at 68% 50%, rgba(14,40,80,0.65) 0%, transparent 65%), radial-gradient(ellipse 30% 40% at 15% 85%, rgba(10,30,60,0.35) 0%, transparent 60%); }
     .hero-grid-lines { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(var(--border-soft) 1px, transparent 1px), linear-gradient(90deg, var(--border-soft) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 80%); }
@@ -169,6 +177,8 @@
 
     /* SHARED */
     section { padding: 100px 52px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .stats-bar-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
     .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
     .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--blue); }
     .section-title { font-family: var(--serif); font-size: clamp(34px, 4.5vw, 56px); font-weight: 300; line-height: 1.08; margin-bottom: 60px; color: var(--text); }
@@ -242,6 +252,26 @@
     footer { background: var(--bg); border-top: 1px solid var(--border); padding: 20px 52px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
     footer img { width: 22px; opacity: 0.3; filter: invert(1); }
 
+
+    /* Card tilt */
+    .proj-card, .port-item {
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .proj-card { transition: background 0.22s, transform 0.12s ease-out, box-shadow 0.12s ease-out; }
+    .port-item { transition: background 0.2s, transform 0.12s ease-out, box-shadow 0.12s ease-out; }
+    .proj-card:hover, .port-item:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(126,184,212,0.12);
+    }
+
+    /* Active nav */
+    .nav-links a.active { color: var(--blue-bright); }
+    .nav-links a.active::after {
+      content: ''; position: absolute; bottom: -22px; left: 0; right: 0;
+      height: 1px; background: var(--blue);
+    }
+    .nav-links a { position: relative; }
+
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
@@ -249,7 +279,8 @@
 
     /* RESPONSIVE */
     @media (max-width: 960px) {
-      #hero { grid-template-columns: 1fr; padding-top: 92px; gap: 40px; }
+      #hero { padding-top: 92px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-right { max-width: 280px; margin: 0 auto; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .stat:nth-child(2) { border-right: none; }
@@ -308,6 +339,7 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid-lines"></div>
+    <div class="hero-inner">
     <div class="hero-left">
       <p class="hero-eyebrow">Finance &amp; Data Science</p>
       <h1 class="hero-name">Michael<br /><em>Liddy.</em></h1>
@@ -324,13 +356,14 @@
         <img src="headshot.png" alt="Michael Liddy, incoming UBS Analyst and Northeastern University student" />
       </div>
     </div>
+    </div><!-- /hero-inner -->
   </section>
 
   <div class="stats-bar">
-    <div class="stat reveal"><div class="stat-value">9+</div><div class="stat-label">Sites Delivered</div></div>
-    <div class="stat reveal d1"><div class="stat-value">2x</div><div class="stat-label">Northeastern Co-Ops</div></div>
-    <div class="stat reveal d2"><div class="stat-value">UBS</div><div class="stat-label">Incoming Analyst</div></div>
-    <div class="stat reveal d3"><div class="stat-value">10+</div><div class="stat-label">Certifications</div></div>
+    <div class="stat reveal"><div class="stat-value" data-count="9" data-suffix="+">0</div><div class="stat-label">Sites Delivered</div></div>
+    <div class="stat reveal d1"><div class="stat-value" data-count="2" data-suffix="x">0</div><div class="stat-label">Northeastern Co-Ops</div></div>
+    <div class="stat reveal d2"><div class="stat-value" data-static="UBS">UBS</div><div class="stat-label">Incoming Analyst</div></div>
+    <div class="stat reveal d3"><div class="stat-value" data-count="10" data-suffix="+">0</div><div class="stat-label">Certifications</div></div>
   </div>
 
   <section id="experience">
@@ -550,10 +583,10 @@
     <p class="section-label">Contact</p>
     <h2 class="section-title">Let's <em>Connect.</em></h2>
     <p class="contact-sub">Open to opportunities, collaborations, and conversations.</p>
-    <a href="mailto:michael@michaelcliddy.com" class="contact-email reveal">michael@michaelcliddy.com</a>
+    <a href="/cdn-cgi/l/email-protection#cda0a4aea5aca8a18da0a4aea5aca8a1aea1a4a9a9b4e3aea2a0" class="contact-email reveal"><span class="__cf_email__" data-cfemail="dab7b3b9b2bbbfb69ab7b3b9b2bbbfb6b9b6b3bebea3f4b9b5b7">[email&#160;protected]</span></a>
     <div class="contact-links reveal d1">
       <a href="https://linkedin.com/in/michael-liddy" target="_blank" rel="noopener">LinkedIn &#8599;</a>
-      <a href="mailto:michael@michaelcliddy.com">Email &#8599;</a>
+      <a href="/cdn-cgi/l/email-protection#224f4b414a43474e624f4b414a43474e414e4b46465b0c414d4f">Email &#8599;</a>
     </div>
   </section>
 
@@ -563,7 +596,7 @@
     <span>Boston, MA</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Cursor
     const cursor = document.getElementById('cursor');
     const ring   = document.getElementById('cursor-ring');
@@ -588,11 +621,4 @@
     ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
     function closeMenu() { ham.classList.remove('open'); mob.classList.remove('open'); }
 
-    // Scroll reveal
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  </script>
-</body>
-</html>
+    // Scroll r

@@ -189,20 +189,22 @@
     @media(max-width:960px){#hero{padding-top:92px;}.hero-inner{grid-template-columns:1fr;gap:40px;}.hero-right{max-width:280px;margin:0 auto;}.stats-bar{grid-template-columns:repeat(2,1fr);}.stat:nth-child(2){border-right:none;}.stat:nth-child(3){border-top:1px solid var(--border);}.projects-grid{grid-template-columns:1fr;}}
     @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-menu{display:flex;}section{padding:72px 24px;}#hero{padding:88px 24px 64px;}.hero-right{display:none;}.timeline{grid-template-columns:1fr;}.timeline::before{display:none;}.t-date{text-align:left;padding:24px 0 4px;}.t-body{padding:4px 0 28px;border-top:none;}.t-body::before{display:none;}footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:84px;}#chat-bubble{right:16px;bottom:20px;}}
     /* --- GoatCounter Live Counter --- */
-    .gc-counter-strip{background:var(--surface);border-bottom:1px solid var(--border);display:flex;gap:2.5rem;justify-content:center;align-items:center;padding:18px 52px;position:relative;overflow:hidden;}
-    .gc-counter-strip::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--blue-dim) 30%,var(--blue) 50%,var(--blue-dim) 70%,transparent 100%);}
-    .gc-heading{display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-width:120px;}
-    .gc-title{font-family:var(--serif);font-size:16px;font-weight:400;font-style:italic;color:var(--blue-bright);letter-spacing:.02em;line-height:1;}
+    .gc-banner{background:var(--surface);border-top:1px solid var(--blue-dim);border-bottom:1px solid var(--border);padding:22px 52px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;position:relative;}
+    .gc-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--blue-dim) 30%,var(--blue) 50%,var(--blue-dim) 70%,transparent 100%);}
+    .gc-banner-left{display:flex;align-items:center;gap:16px;}
+    .gc-banner-icon{width:40px;height:40px;border-radius:6px;background:var(--blue-dim);border:1px solid rgba(126,184,212,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .gc-banner-icon svg{width:20px;height:20px;fill:none;stroke:var(--blue);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+    .gc-banner-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+    .gc-banner-title{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--text);}
+    .gc-banner-title em{color:var(--blue-bright);font-style:italic;}
+    .gc-banner-center{display:flex;align-items:center;gap:12px;}
+    .gc-stat-num{font-family:var(--serif);font-size:44px;font-weight:400;color:var(--blue-bright);letter-spacing:-.01em;line-height:1;}
+    .gc-stat-num.gc-loading{opacity:.3;animation:gcPulse 1.5s ease-in-out infinite;}
+    @keyframes gcPulse{0%,100%{opacity:.3}50%{opacity:.6}}
     .gc-live{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4ade80;}
     .gc-dot{width:5px;height:5px;background:#4ade80;border-radius:50%;animation:gcBlink 2s ease-in-out infinite;box-shadow:0 0 6px rgba(74,222,128,.4);}
     @keyframes gcBlink{0%,100%{opacity:1}50%{opacity:.3}}
-    .gc-stat-group{display:flex;gap:2rem;}
-    .gc-stat{display:flex;align-items:baseline;gap:6px;}
-    .gc-stat-num{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--blue-bright);letter-spacing:.02em;line-height:1;transition:color .2s;}
-    .gc-stat-num.gc-loading{opacity:.3;animation:gcPulse 1.5s ease-in-out infinite;}
-    @keyframes gcPulse{0%,100%{opacity:.3}50%{opacity:.6}}
-    .gc-stat-lbl{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
-    @media(max-width:768px){.gc-counter-strip{flex-direction:column;gap:.8rem;padding:14px 24px;}.gc-heading{align-items:center;}.gc-stat-group{gap:1.2rem;}}
+    @media(max-width:768px){.gc-banner{grid-template-columns:1fr;gap:1rem;padding:18px 24px;justify-items:center;}.gc-banner-left{justify-content:center;}}
   </style>
 </head>
 <body>
@@ -266,16 +268,19 @@
   </div>
 
   <!-- GoatCounter Live Visitor Counter -->
-  <div class="gc-counter-strip">
-    <div class="gc-heading">
+  <div class="gc-banner">
+    <div class="gc-banner-left">
+      <div class="gc-banner-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <div>
+        <div class="gc-banner-label">Portfolio Reach</div>
+        <div class="gc-banner-title">Visitors <em>this week</em></div>
+      </div>
+    </div>
+    <div class="gc-banner-center">
+      <span class="gc-stat-num gc-loading" id="gc-week">&mdash;</span>
       <div class="gc-live"><span class="gc-dot"></span>Live</div>
-      <div class="gc-title">Portfolio Reach</div>
     </div>
-    <div class="gc-stat-group">
-      <div class="gc-stat"><span class="gc-stat-num gc-loading" id="gc-week">&mdash;</span><span class="gc-stat-lbl">This Week</span></div>
-      <div class="gc-stat"><span class="gc-stat-num gc-loading" id="gc-month">&mdash;</span><span class="gc-stat-lbl">This Month</span></div>
-      <div class="gc-stat"><span class="gc-stat-num gc-loading" id="gc-total">&mdash;</span><span class="gc-stat-lbl">All Time</span></div>
-    </div>
+    <div></div>
   </div>
 
   <section id="experience">
@@ -609,7 +614,6 @@
     var base='https://michaelcliddy.goatcounter.com';
     var DUR=2200;
 
-    // All sites in your portfolio — add or remove as needed
     var SITES=[
       '/',                          // michaelcliddy.com
       'vetwork.org',                // Vetwork
@@ -660,29 +664,15 @@
 
     function init(){
       var eW=document.getElementById('gc-week');
-      var eM=document.getElementById('gc-month');
-      var eA=document.getElementById('gc-total');
       if(!eW)return;
 
       var today=toISO(new Date());
-
       var wa=new Date(); wa.setDate(wa.getDate()-7);
       var weekAgo=toISO(wa);
 
-      var ma=new Date(); ma.setMonth(ma.getMonth()-1);
-      var monthAgo=toISO(ma);
-
-      Promise.all([
-        fetchAll(SITES,weekAgo,today),
-        fetchAll(SITES,monthAgo,today),
-        fetchAll(SITES,null,null)
-      ]).then(function(r){
+      fetchAll(SITES,weekAgo,today).then(function(total){
         eW.classList.remove('gc-loading');
-        eM.classList.remove('gc-loading');
-        eA.classList.remove('gc-loading');
-        animCount(eW,r[0],DUR*0.6);
-        animCount(eM,r[1],DUR*0.8);
-        animCount(eA,r[2],DUR);
+        animCount(eW,total,DUR);
       });
     }
 

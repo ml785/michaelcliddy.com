@@ -639,7 +639,7 @@
       })(start);
     }
 
-    function fetchGC(path,start,end){
+    function fetchGC(path,period){
       return new Promise(function(resolve){
         var r=new XMLHttpRequest();
         r.addEventListener('load',function(){
@@ -648,29 +648,21 @@
         });
         r.addEventListener('error',function(){resolve(0);});
         var url=base+'/counter/'+encodeURIComponent(path)+'.json';
-        if(start&&end) url+='?start='+start+'&end='+end;
+        if(period) url+='?start='+period;
         r.open('GET',url);r.send();
       });
     }
 
-    function fetchAll(paths,start,end){
-      return Promise.all(paths.map(function(p){return fetchGC(p,start,end);}))
+    function fetchAll(paths,period){
+      return Promise.all(paths.map(function(p){return fetchGC(p,period);}))
         .then(function(counts){return counts.reduce(function(sum,n){return sum+n;},0);});
-    }
-
-    function toISO(d){
-      return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
     }
 
     function init(){
       var eW=document.getElementById('gc-week');
       if(!eW)return;
 
-      var today=toISO(new Date());
-      var wa=new Date(); wa.setDate(wa.getDate()-7);
-      var weekAgo=toISO(wa);
-
-      fetchAll(SITES,weekAgo,today).then(function(total){
+      fetchAll(SITES,'week').then(function(total){
         eW.classList.remove('gc-loading');
         animCount(eW,total,DUR);
       });

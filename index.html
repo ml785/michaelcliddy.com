@@ -189,7 +189,7 @@
     #chat-send svg{width:14px;height:14px;fill:none;stroke:var(--bg);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
     @media(max-width:960px){#hero{padding-top:92px;}.hero-inner{grid-template-columns:1fr 300px;gap:40px;}.stats-bar{grid-template-columns:repeat(3,1fr);}.stat:nth-child(3n){border-right:none;}.stat:nth-child(n+4){border-top:1px solid var(--border);}.projects-grid{grid-template-columns:1fr;}}
     @media(max-width:560px){.stats-bar{grid-template-columns:repeat(2,1fr);}.stat:nth-child(3n){border-right:1px solid var(--border);}.stat:nth-child(2n){border-right:none;}.stat:nth-child(n+3){border-top:1px solid var(--border);}.stat{padding:22px 18px;}.stat-value{font-size:24px;}}
-    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-menu{display:flex;}section{padding:72px 24px;}#hero{padding:88px 24px 64px;align-items:flex-start;}.hero-inner{display:block;}.hero-left{grid-column:auto;}.hero-right{float:right;width:42%;max-width:150px;margin:6px 0 8px 16px;grid-column:auto;shape-outside:url(headshot.png);shape-margin:12px;}.headshot-wrap{aspect-ratio:auto;overflow:visible;}.headshot-wrap img{height:auto;object-fit:contain;}.hero-name{font-size:clamp(46px,13vw,68px);}.timeline{grid-template-columns:1fr;}.timeline::before{display:none;}.t-date{text-align:left;padding:24px 0 4px;}.t-body{padding:4px 0 28px;border-top:none;}.t-body::before{display:none;}footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:84px;}#chat-bubble{right:16px;bottom:20px;}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-menu{display:flex;}section{padding:72px 24px;}#hero{padding:88px 24px 64px;align-items:flex-start;}.hero-inner{display:block;}.hero-left{grid-column:auto;}.hero-right{float:right;width:48%;max-width:185px;margin:4px -4px 14px 22px;grid-column:auto;shape-outside:url(headshot.png);shape-margin:20px;}.headshot-wrap{aspect-ratio:auto;overflow:visible;}.headshot-wrap img{height:auto;object-fit:contain;}.hero-eyebrow{margin-bottom:20px;}.hero-name{font-size:clamp(44px,12.5vw,64px);margin-bottom:24px;}.timeline{grid-template-columns:1fr;}.timeline::before{display:none;}.t-date{text-align:left;padding:24px 0 4px;}.t-body{padding:4px 0 28px;border-top:none;}.t-body::before{display:none;}footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:84px;}#chat-bubble{right:16px;bottom:20px;}}
     /* --- GoatCounter Live Counter --- */
     .gc-banner{background:var(--surface);border-top:1px solid var(--blue-dim);border-bottom:1px solid var(--border);padding:22px 52px;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:40px;position:relative;}
     .gc-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--blue-dim) 30%,var(--blue) 50%,var(--blue-dim) 70%,transparent 100%);}
@@ -662,19 +662,6 @@
     var base='https://michaelcliddy.goatcounter.com';
     var DUR=2200;
 
-    var SITES=[
-      '/',                          // michaelcliddy.com
-      'vetwork.org',                // Vetwork
-      'ma22.org',                   // MA22
-      'vfwauxiliary8867.org',       // VFW Auxiliary
-      'mazurcpas.com',              // Mazur CPAs
-      'nufiji.com',                 // NU FIJI
-      'njpba50.com',                // NJPBA 50
-      'colleenmreeves.com',         // Colleen M Reeves
-      'privatehomemanagement.com',  // Private Home Management
-      'ruthstage.org'               // Ruth Stage
-    ];
-
     function easeOut(t){return t===1?1:1-Math.pow(2,-10*t);}
 
     function animCount(el,target,dur){
@@ -682,7 +669,7 @@
       var start=performance.now();
       (function tick(now){
         var p=Math.min((now-start)/dur,1);
-        el.textContent=Math.round(easeOut(p)*target).toLocaleString();
+        el.textContent=Math.round(easeOut(p)*target).toLocaleString('en-US');
         if(p<1)requestAnimationFrame(tick);
       })(start);
     }
@@ -701,23 +688,18 @@
       });
     }
 
-    function fetchAll(paths,period){
-      return Promise.all(paths.map(function(p){return fetchGC(p,period);}))
-        .then(function(counts){return counts.reduce(function(sum,n){return sum+n;},0);});
-    }
-
     function init(){
       var eW=document.getElementById('gc-week');
       var eT=document.getElementById('gc-total');
       if(!eW)return;
 
-      fetchAll(SITES,'week').then(function(total){
+      fetchGC('TOTAL','week').then(function(total){
         eW.classList.remove('gc-loading');
         animCount(eW,total,DUR);
       });
 
       if(eT){
-        fetchAll(SITES,null).then(function(total){
+        fetchGC('TOTAL',null).then(function(total){
           eT.classList.remove('gc-loading');
           animCount(eT,total,DUR);
         });

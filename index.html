@@ -59,9 +59,9 @@
     #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 52px 80px;position:relative;overflow:hidden;}
     .hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 65% at 68% 50%,rgba(14,40,80,.65) 0%,transparent 65%),radial-gradient(ellipse 30% 40% at 15% 85%,rgba(10,30,60,.35) 0%,transparent 60%);}
     .hero-grid-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border-soft) 1px,transparent 1px),linear-gradient(90deg,var(--border-soft) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 20%,transparent 80%);}
-    .hero-inner{display:grid;grid-template-columns:1fr 400px;align-items:center;gap:64px;width:100%;max-width:1100px;}
-    .hero-left{position:relative;z-index:1;grid-column:1;}
-    .hero-right{position:relative;z-index:1;grid-column:2;grid-row:1;}
+    .hero-inner{position:relative;display:block;align-items:center;width:100%;max-width:1100px;}
+    .hero-left{position:relative;z-index:1;padding-right:464px;}
+    .hero-right{position:absolute;top:50%;right:0;transform:translateY(-50%);width:400px;z-index:1;}
     .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
     .hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--blue);}
     .hero-name{font-family:var(--serif);font-size:clamp(54px,7vw,96px);font-weight:300;line-height:.97;color:var(--text);margin-bottom:28px;letter-spacing:-.01em;}
@@ -187,9 +187,9 @@
     @media(pointer:fine){#chat-send{cursor:none;}}
     #chat-send:hover{background:var(--blue-bright);}
     #chat-send svg{width:14px;height:14px;fill:none;stroke:var(--bg);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
-    @media(max-width:960px){#hero{padding-top:92px;}.hero-inner{grid-template-columns:1fr 300px;gap:40px;}.stats-bar{grid-template-columns:repeat(3,1fr);}.stat:nth-child(3n){border-right:none;}.stat:nth-child(n+4){border-top:1px solid var(--border);}.projects-grid{grid-template-columns:1fr;}}
+    @media(max-width:960px){#hero{padding-top:92px;}.hero-left{padding-right:344px;}.hero-right{width:300px;}.stats-bar{grid-template-columns:repeat(3,1fr);}.stat:nth-child(3n){border-right:none;}.stat:nth-child(n+4){border-top:1px solid var(--border);}.projects-grid{grid-template-columns:1fr;}}
     @media(max-width:560px){.stats-bar{grid-template-columns:repeat(2,1fr);}.stat:nth-child(3n){border-right:1px solid var(--border);}.stat:nth-child(2n){border-right:none;}.stat:nth-child(n+3){border-top:1px solid var(--border);}.stat{padding:22px 18px;}.stat-value{font-size:24px;}}
-    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-menu{display:flex;}section{padding:72px 24px;}#hero{padding:88px 24px 64px;align-items:flex-start;}.hero-inner{display:block;}.hero-left{grid-column:auto;}.hero-right{float:right;width:42%;max-width:165px;margin:6px 0 16px 20px;grid-column:auto;}.headshot-wrap{aspect-ratio:auto;overflow:visible;}.headshot-wrap img{height:auto;object-fit:contain;display:block;}.hero-eyebrow{margin-bottom:20px;}.hero-name{font-size:clamp(44px,12.5vw,64px);margin-bottom:24px;}.timeline{grid-template-columns:1fr;}.timeline::before{display:none;}.t-date{text-align:left;padding:24px 0 4px;}.t-body{padding:4px 0 28px;border-top:none;}.t-body::before{display:none;}footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:84px;}#chat-bubble{right:16px;bottom:20px;}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-menu{display:flex;}section{padding:72px 24px;}#hero{padding:88px 24px 64px;align-items:flex-start;}.hero-inner{display:block;}.hero-left{padding-right:0;}.hero-right{position:static;transform:none;width:200px;max-width:60%;margin:4px 0 28px;}.headshot-wrap{aspect-ratio:auto;overflow:visible;}.headshot-wrap img{height:auto;object-fit:contain;display:block;}.hero-eyebrow{margin-bottom:20px;}.hero-name{font-size:clamp(44px,12.5vw,64px);margin-bottom:24px;}.timeline{grid-template-columns:1fr;}.timeline::before{display:none;}.t-date{text-align:left;padding:24px 0 4px;}.t-body{padding:4px 0 28px;border-top:none;}.t-body::before{display:none;}footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:84px;}#chat-bubble{right:16px;bottom:20px;}}
     /* --- GoatCounter Live Counter --- */
     .gc-banner{background:var(--surface);border-top:1px solid var(--blue-dim);border-bottom:1px solid var(--border);padding:22px 52px;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:40px;position:relative;}
     .gc-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--blue-dim) 30%,var(--blue) 50%,var(--blue-dim) 70%,transparent 100%);}
@@ -261,14 +261,14 @@
     <div class="hero-bg"></div>
     <div class="hero-grid-lines"></div>
     <div class="hero-inner">
-      <div class="hero-right">
-        <div class="headshot-wrap">
-          <img src="headshot.png" alt="Michael Liddy, incoming UBS Analyst and Northeastern University student" />
-        </div>
-      </div>
       <div class="hero-left">
         <p class="hero-eyebrow">Finance &amp; Data Science</p>
         <h1 class="hero-name">Michael<br /><em>Liddy.</em></h1>
+        <div class="hero-right">
+          <div class="headshot-wrap">
+            <img src="headshot.png" alt="Michael Liddy, incoming UBS Analyst and Northeastern University student" />
+          </div>
+        </div>
         <p class="hero-desc">
           <strong>Incoming Analyst at UBS.</strong> I'm a fourth-year Honors student at Northeastern University studying Business Administration with a concentration in Finance and a minor in Data Science. Through co-ops at MIT Lincoln Laboratory and UBS, I've built experience at the intersection of finance, technology, and analytics &mdash; and founded ML Technology Services to bring that same thinking to local businesses.
         </p>

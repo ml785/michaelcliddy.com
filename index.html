@@ -189,7 +189,7 @@
     #chat-send svg{width:14px;height:14px;fill:none;stroke:var(--bg);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
     @media(max-width:960px){#hero{padding-top:92px;}.hero-inner{grid-template-columns:1fr 300px;gap:40px;}.stats-bar{grid-template-columns:repeat(3,1fr);}.stat:nth-child(3n){border-right:none;}.stat:nth-child(n+4){border-top:1px solid var(--border);}.projects-grid{grid-template-columns:1fr;}}
     @media(max-width:560px){.stats-bar{grid-template-columns:repeat(2,1fr);}.stat:nth-child(3n){border-right:1px solid var(--border);}.stat:nth-child(2n){border-right:none;}.stat:nth-child(n+3){border-top:1px solid var(--border);}.stat{padding:22px 18px;}.stat-value{font-size:24px;}}
-    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-menu{display:flex;}section{padding:72px 24px;}#hero{padding:88px 24px 64px;align-items:flex-start;}.hero-inner{display:block;}.hero-left{grid-column:auto;}.hero-right{float:right;width:48%;max-width:185px;margin:4px -4px 14px 22px;grid-column:auto;shape-outside:url(headshot.png);shape-margin:20px;}.headshot-wrap{aspect-ratio:auto;overflow:visible;}.headshot-wrap img{height:auto;object-fit:contain;}.hero-eyebrow{margin-bottom:20px;}.hero-name{font-size:clamp(44px,12.5vw,64px);margin-bottom:24px;}.timeline{grid-template-columns:1fr;}.timeline::before{display:none;}.t-date{text-align:left;padding:24px 0 4px;}.t-body{padding:4px 0 28px;border-top:none;}.t-body::before{display:none;}footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:84px;}#chat-bubble{right:16px;bottom:20px;}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-menu{display:flex;}section{padding:72px 24px;}#hero{padding:88px 24px 64px;align-items:flex-start;}.hero-inner{display:block;}.hero-left{grid-column:auto;}.hero-right{float:right;width:42%;max-width:165px;margin:6px 0 16px 20px;grid-column:auto;}.headshot-wrap{aspect-ratio:auto;overflow:visible;}.headshot-wrap img{height:auto;object-fit:contain;display:block;}.hero-eyebrow{margin-bottom:20px;}.hero-name{font-size:clamp(44px,12.5vw,64px);margin-bottom:24px;}.timeline{grid-template-columns:1fr;}.timeline::before{display:none;}.t-date{text-align:left;padding:24px 0 4px;}.t-body{padding:4px 0 28px;border-top:none;}.t-body::before{display:none;}footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:84px;}#chat-bubble{right:16px;bottom:20px;}}
     /* --- GoatCounter Live Counter --- */
     .gc-banner{background:var(--surface);border-top:1px solid var(--blue-dim);border-bottom:1px solid var(--border);padding:22px 52px;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:40px;position:relative;}
     .gc-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--blue-dim) 30%,var(--blue) 50%,var(--blue-dim) 70%,transparent 100%);}
@@ -678,7 +678,7 @@
       return new Promise(function(resolve){
         var r=new XMLHttpRequest();
         r.addEventListener('load',function(){
-          try{var d=JSON.parse(this.responseText);resolve(parseInt(d.count.replace(/,/g,''),10)||0);}
+          try{var d=JSON.parse(this.responseText);resolve(parseInt(String(d.count).replace(/[^0-9]/g,''),10)||0);}
           catch(e){resolve(0);}
         });
         r.addEventListener('error',function(){resolve(0);});

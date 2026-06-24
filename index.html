@@ -22,9 +22,9 @@
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root{--bg:#07101f;--surface:#0b1628;--surface-2:#101e36;--border:rgba(255,255,255,0.07);--border-soft:rgba(255,255,255,0.04);--blue:#7eb8d4;--blue-bright:#a8d4ea;--blue-dim:rgba(126,184,212,0.12);--text:#dde6f0;--muted:#6a7f96;--subtle:rgba(221,230,240,0.45);--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+    :root{--bg:#07101f;--surface:#0b1628;--surface-2:#101e36;--border:rgba(255,255,255,0.07);--border-soft:rgba(255,255,255,0.04);--blue:#7eb8d4;--blue-bright:#a8d4ea;--blue-dim:rgba(126,184,212,0.12);--text:#dde6f0;--muted:#6a7f96;--subtle:rgba(221,230,240,0.45);--serif:'Cormorant Garamond',Georgia,serif;--serif-num:'EB Garamond','Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.75;overflow-x:hidden;}
@@ -80,7 +80,7 @@
     .stats-bar{background:var(--surface);border-top:1px solid var(--blue-dim);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(6,1fr);}
     .stat{padding:28px 24px;border-right:1px solid var(--border);}
     .stat:last-child{border-right:none;}
-    .stat-value{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--blue-bright);line-height:1;margin-bottom:5px;}
+    .stat-value{font-family:var(--serif-num);font-size:28px;font-weight:400;color:var(--blue-bright);line-height:1;margin-bottom:5px;}
     .stat-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
     section{padding:100px 52px;}
     .section-label{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:flex;align-items:center;gap:12px;}
@@ -124,13 +124,13 @@
     .port-arrow{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:5px;transition:color .2s,gap .2s;flex-shrink:0;}
     .port-item:hover .port-arrow{color:var(--blue);gap:9px;}
     #certifications{background:var(--bg);}
-    .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
-    .cert{background:var(--bg);padding:22px 20px;transition:background .2s;display:flex;align-items:flex-start;gap:12px;}
+    .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
+    .cert{background:var(--bg);padding:26px 22px;transition:background .2s;display:flex;align-items:center;gap:16px;}
     .cert:hover{background:var(--surface);}
     .cert-feature{background:linear-gradient(135deg,rgba(126,184,212,.08),rgba(126,184,212,.02));box-shadow:inset 3px 0 0 var(--blue);}
     .cert-feature:hover{background:linear-gradient(135deg,rgba(126,184,212,.13),rgba(126,184,212,.04));}
     .cert-name em{color:var(--blue-bright);font-style:italic;font-weight:500;}
-    .cert-icon{width:28px;height:28px;border-radius:4px;object-fit:contain;flex-shrink:0;background:rgba(255,255,255,.05);padding:3px;margin-top:2px;}
+    .cert-icon{width:54px;height:54px;border-radius:10px;object-fit:contain;flex-shrink:0;background:rgba(255,255,255,.07);border:1px solid var(--border);padding:9px;}
     .cert-issuer{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;}
     .cert-name{font-family:var(--serif);font-size:15px;font-weight:400;color:var(--text);line-height:1.3;}
     #contact{background:var(--surface);text-align:center;}
@@ -206,7 +206,7 @@
     .gc-banner-metrics{display:flex;align-items:flex-end;gap:32px;}
     .gc-metric{display:flex;flex-direction:column;align-items:center;gap:7px;}
     .gc-metric-label{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
-    .gc-stat-num{font-family:var(--serif);font-size:34px;font-weight:400;color:var(--blue-bright);letter-spacing:-.01em;line-height:1;}
+    .gc-stat-num{font-family:var(--serif-num);font-size:34px;font-weight:400;color:var(--blue-bright);letter-spacing:-.01em;line-height:1;}
     .gc-stat-num.gc-loading{opacity:.3;animation:gcPulse 1.5s ease-in-out infinite;}
     @keyframes gcPulse{0%,100%{opacity:.3}50%{opacity:.6}}
     .gc-live{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4ade80;}
@@ -229,6 +229,63 @@
     .gc-bar-tag{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:right;}
     @media(max-width:768px){.gc-chart{padding:28px 24px 32px;}.gc-bar-row{grid-template-columns:96px 1fr 62px;gap:11px;}.gc-bar-name{font-size:11.5px;}}
     @media(max-width:480px){.gc-bar-row{grid-template-columns:82px 1fr 54px;gap:9px;}.gc-bar-name{font-size:10.5px;}.gc-bar-tag{font-size:8px;}}
+    /* --- Vetwork Impact --- */
+    .impact-intro{font-size:14px;color:var(--subtle);max-width:620px;line-height:1.9;margin-bottom:36px;}
+    .impact-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:36px;}
+    .impact-stat{background:var(--surface);padding:28px 24px;}
+    .impact-num{font-family:var(--serif-num);font-size:42px;font-weight:400;color:var(--blue-bright);line-height:1;margin-bottom:8px;letter-spacing:-.01em;}
+    .impact-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+    .impact-bar-val{font-family:var(--serif-num);font-size:15px;color:var(--blue-bright);font-variant-numeric:tabular-nums;letter-spacing:0;text-transform:none;}
+    #impact-chart{padding-left:0;padding-right:0;background:transparent;border-bottom:none;}
+    @media(max-width:768px){.impact-stats{grid-template-columns:repeat(2,1fr);}.impact-num{font-size:34px;}}
+    @media(max-width:400px){.impact-stats{grid-template-columns:1fr;}}
+    /* --- Education --- */
+    .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:28px;}
+    .edu-card{background:var(--surface);padding:30px 26px;display:flex;flex-direction:column;gap:6px;transition:background .2s;}
+    .edu-card:hover{background:var(--surface-2);}
+    .edu-feature{background:linear-gradient(150deg,rgba(126,184,212,.10),rgba(126,184,212,.02));box-shadow:inset 3px 0 0 var(--blue);}
+    .edu-feature:hover{background:linear-gradient(150deg,rgba(126,184,212,.15),rgba(126,184,212,.04));}
+    .edu-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;min-height:48px;}
+    .edu-logo{width:48px;height:48px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,.06);padding:6px;}
+    .edu-badge{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-bright);background:var(--blue-dim);border:1px solid rgba(126,184,212,.25);padding:5px 10px;border-radius:20px;white-space:nowrap;}
+    .edu-school{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--text);line-height:1.15;}
+    .edu-feature .edu-school{color:var(--blue-bright);}
+    .edu-degree{font-size:13px;font-weight:500;color:var(--text);}
+    .edu-detail{font-size:12.5px;color:var(--subtle);line-height:1.5;}
+    .edu-meta{font-size:11px;color:var(--muted);letter-spacing:.03em;margin-top:4px;}
+    .edu-activities{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;padding-top:4px;}
+    .edu-act-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);}
+    .edu-act-list{display:flex;flex-wrap:wrap;gap:12px 24px;}
+    .edu-act{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--text);}
+    .edu-act i{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;}
+    @media(max-width:768px){.edu-grid{grid-template-columns:1fr;}}
+    /* --- Tech Stack --- */
+    .techstack{margin-top:40px;padding-top:32px;border-top:1px solid var(--border);}
+    .techstack-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:18px;}
+    .techstack-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px;}
+    .tech-chip{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:500;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:9px 16px 9px 11px;transition:border-color .2s,background .2s;}
+    .tech-chip:hover{border-color:var(--blue-dim);background:var(--surface-2);}
+    .tech-chip img{width:20px;height:20px;border-radius:4px;object-fit:contain;}
+    .tech-svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+    .app-row{margin-bottom:0;}
+    .tech-app{background:var(--blue-dim);border-color:rgba(126,184,212,.3);color:var(--blue-bright);}
+    .tech-app:hover{background:rgba(126,184,212,.18);}
+    .app-note{font-size:12px;color:var(--muted);font-style:italic;}
+    @media(max-width:480px){.app-note{width:100%;}}
+    /* --- Featured Work --- */
+    .featured-work{display:grid;grid-template-columns:1fr 200px;gap:32px;align-items:center;background:linear-gradient(135deg,rgba(126,184,212,.09),rgba(126,184,212,.02));border:1px solid var(--border);box-shadow:inset 3px 0 0 var(--blue);border-radius:4px;padding:36px 38px;margin-bottom:24px;text-decoration:none;transition:background .25s,transform .25s;}
+    .featured-work:hover{background:linear-gradient(135deg,rgba(126,184,212,.14),rgba(126,184,212,.04));transform:translateY(-2px);}
+    .fw-eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+    .fw-title{font-family:var(--serif);font-size:34px;font-weight:400;color:var(--blue-bright);line-height:1;margin-bottom:14px;}
+    .fw-desc{font-size:13.5px;color:var(--subtle);line-height:1.75;max-width:520px;margin-bottom:20px;}
+    .fw-press{margin-bottom:22px;}
+    .fw-press-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px;}
+    .fw-press-list{display:flex;flex-wrap:wrap;gap:8px 10px;}
+    .fw-press-list span{font-size:11px;font-weight:500;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:5px 10px;}
+    .fw-cta{font-size:13px;font-weight:500;color:var(--blue-bright);}
+    .fw-right{display:flex;justify-content:center;}
+    .fw-logo{width:120px;height:120px;border-radius:16px;object-fit:contain;background:rgba(255,255,255,.07);border:1px solid var(--border);padding:18px;}
+    @media(max-width:768px){.featured-work{grid-template-columns:1fr;gap:24px;padding:30px 26px;}.fw-right{justify-content:flex-start;order:-1;}.fw-logo{width:80px;height:80px;padding:12px;}.fw-title{font-size:28px;}}
   </style>
 </head>
 <body>
@@ -238,9 +295,11 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <a href="#experience" onclick="closeMenu()">Experience</a>
-    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#education" onclick="closeMenu()">Education</a>
     <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+    <a href="#impact" onclick="closeMenu()">Impact</a>
     <a href="#certifications" onclick="closeMenu()">Certifications</a>
+    <a href="#projects" onclick="closeMenu()">Projects</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
   </div>
 
@@ -251,9 +310,11 @@
     </div>
     <ul class="nav-links">
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#impact">Impact</a></li>
       <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -284,57 +345,6 @@
     </div>
   </section>
 
-  <div class="stats-bar">
-    <div class="stat reveal"><div class="stat-value" data-count="960" data-prefix="$" data-suffix="K+">$0K+</div><div class="stat-label">Revenue Overseen</div></div>
-    <div class="stat reveal d1"><div class="stat-value" data-count="9" data-suffix="+">0+</div><div class="stat-label">Sites Delivered</div></div>
-    <div class="stat reveal d2"><div class="stat-value" data-count="10" data-suffix="+">0+</div><div class="stat-label">Certifications</div></div>
-    <div class="stat reveal d3"><div class="stat-value" data-count="2" data-suffix="x">0x</div><div class="stat-label">Northeastern Co-Ops</div></div>
-    <div class="stat reveal d4"><div class="stat-value" data-count="3" data-suffix="+">0+</div><div class="stat-label">Online Stores</div></div>
-    <div class="stat reveal d5"><div class="stat-value" data-count="4" data-suffix="+">0+</div><div class="stat-label">Yrs on Vetwork Board</div></div>
-  </div>
-
-  <!-- GoatCounter Live Visitor Counter -->
-  <div class="gc-banner">
-    <div class="gc-banner-left">
-      <div class="gc-banner-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <div>
-        <div class="gc-banner-label">Portfolio Reach</div>
-        <div class="gc-banner-title">Live traffic across <em>every site I've built</em></div>
-      </div>
-    </div>
-    <div class="gc-banner-metrics">
-      <div class="gc-metric">
-        <span class="gc-stat-num gc-loading" id="gc-week">&mdash;</span>
-        <span class="gc-metric-label">This Week</span>
-      </div>
-      <div class="gc-metric">
-        <span class="gc-stat-num gc-loading" id="gc-total">&mdash;</span>
-        <span class="gc-metric-label">All Time</span>
-      </div>
-    </div>
-    <div class="gc-live"><span class="gc-dot"></span>Live</div>
-  </div>
-
-  <!-- Skills Proficiency Chart -->
-  <div class="gc-chart" id="skills-chart">
-    <div class="gc-chart-head">
-      <div>
-        <div class="gc-chart-label">Technical Toolkit</div>
-        <div class="gc-chart-title">Skills &amp; <em>proficiency</em></div>
-      </div>
-      <div class="gc-chart-note">Finance &middot; Data &middot; Development</div>
-    </div>
-    <div class="gc-bars" id="skill-bars">
-      <div class="gc-bar-row"><span class="gc-bar-name">Excel</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="92"></div></div><span class="gc-bar-tag">Finance</span></div>
-      <div class="gc-bar-row"><span class="gc-bar-name">Python</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="88"></div></div><span class="gc-bar-tag">Data</span></div>
-      <div class="gc-bar-row"><span class="gc-bar-name">HTML / CSS</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="85"></div></div><span class="gc-bar-tag">Dev</span></div>
-      <div class="gc-bar-row"><span class="gc-bar-name">VBA</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="80"></div></div><span class="gc-bar-tag">Data</span></div>
-      <div class="gc-bar-row"><span class="gc-bar-name">SQL</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="76"></div></div><span class="gc-bar-tag">Data</span></div>
-      <div class="gc-bar-row"><span class="gc-bar-name">SAP</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="68"></div></div><span class="gc-bar-tag">Finance</span></div>
-      <div class="gc-bar-row"><span class="gc-bar-name">Bloomberg</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="64"></div></div><span class="gc-bar-tag">Finance</span></div>
-    </div>
-  </div>
-
   <section id="experience">
     <p class="section-label">Career</p>
     <h2 class="section-title">Experience &amp; <em>Timeline</em></h2>
@@ -363,7 +373,7 @@
       <div class="t-date reveal"><strong>2022&ndash;</strong><span>Ongoing</span></div>
       <div class="t-body reveal d1">
         <div class="t-header"><div class="t-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="t-company">Vetwork</div></div>
-        <div class="t-role">Board Director &middot; IT &amp; Business Analytics</div>
+        <div class="t-role">Director of Business Intelligence &amp; IT</div>
         <p class="t-desc">Administered 20+ Google Workspace accounts, Stripe, and Monday.com. Oversaw social media campaigns, monthly statistical reporting, and coordinated annual impact reports tracking service metrics and economic impact.</p>
         <div class="tags"><span class="tag">Analytics</span><span class="tag">Nonprofit</span><span class="tag">Platform Ops</span></div>
       </div>
@@ -381,6 +391,136 @@
         <p class="t-desc">Completed foundational accounting tasks under the direction of mentor Steve Mazur as part of the Thomas G. Labreque Senior Experience Internship. Worked extensively with Excel for financial data management.</p>
         <div class="tags"><span class="tag">Accounting</span><span class="tag">Excel</span></div>
       </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic <em>Background</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card edu-feature reveal">
+        <div class="edu-head">
+          <img class="edu-logo" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="Northeastern University" />
+          <span class="edu-badge">Magna Cum Laude</span>
+        </div>
+        <div class="edu-school">Northeastern University</div>
+        <div class="edu-degree">B.S. Business Administration</div>
+        <div class="edu-detail">Finance Concentration &middot; Data Science Minor</div>
+        <div class="edu-meta">University Honors Program &middot; Dean's List</div>
+      </div>
+      <div class="edu-card reveal d1">
+        <div class="edu-head">
+          <img class="edu-logo" src="https://www.google.com/s2/favicons?domain=johncabot.edu&sz=128" alt="John Cabot University" />
+        </div>
+        <div class="edu-school">John Cabot University</div>
+        <div class="edu-degree">N.U.in Program &middot; Rome, Italy</div>
+        <div class="edu-detail">First-semester study abroad through Northeastern's N.U.in program</div>
+        <div class="edu-meta">Semester in Rome</div>
+      </div>
+      <div class="edu-card reveal d2">
+        <div class="edu-head">
+          <img class="edu-logo" src="https://www.google.com/s2/favicons?domain=rbchs.org&sz=128" alt="Red Bank Catholic High School" />
+        </div>
+        <div class="edu-school">Red Bank Catholic</div>
+        <div class="edu-degree">High School Diploma</div>
+        <div class="edu-detail">Red Bank, New Jersey</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <p class="section-label">Client Work</p>
+    <h2 class="section-title">Freelance <em>Sites</em></h2>
+    <a class="featured-work reveal" href="https://ruthstage.org" target="_blank" rel="noopener">
+      <div class="fw-left">
+        <div class="fw-eyebrow">Featured Build</div>
+        <div class="fw-title">Ruth Stage</div>
+        <div class="fw-desc">A full website for the award-winning NYC theater company, featuring custom scroll-driven animation and integrated ticketing. The productions it stages have drawn national press.</div>
+        <div class="fw-press">
+          <span class="fw-press-label">Productions covered in</span>
+          <div class="fw-press-list">
+            <span>The New York Times</span><span>Variety</span><span>The New Yorker</span><span>Playbill</span><span>CBS</span><span>NBC</span>
+          </div>
+        </div>
+        <div class="fw-cta">Visit ruthstage.org &#8594;</div>
+      </div>
+      <div class="fw-right">
+        <img class="fw-logo" src="https://www.google.com/s2/favicons?domain=ruthstage.org&sz=256" alt="Ruth Stage" />
+      </div>
+    </a>
+    <div class="portfolio-grid">
+      <a class="port-item reveal" href="https://vetwork.org" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=vetwork.org&sz=64" alt="" /><div class="port-text"><div class="port-domain">vetwork.org</div></div><div class="port-arrow">View &#8594;</div></a>
+      <a class="port-item reveal d1" href="https://ma22.org" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=ma22.org&sz=64" alt="" /><div class="port-text"><div class="port-domain">ma22.org</div></div><div class="port-arrow">View &#8594;</div></a>
+      <a class="port-item reveal d2" href="https://www.vfwauxiliary8867.org" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=vfwauxiliary8867.org&sz=64" alt="" /><div class="port-text"><div class="port-domain">vfwauxiliary8867.org</div></div><div class="port-arrow">View &#8594;</div></a>
+      <a class="port-item reveal" href="https://mazurcpas.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=mazurcpas.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">mazurcpas.com</div></div><div class="port-arrow">View &#8594;</div></a>
+      <a class="port-item reveal d1" href="https://nufiji.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=nufiji.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">nufiji.com</div></div><div class="port-arrow">View &#8594;</div></a>
+      <a class="port-item reveal d2" href="https://njpba50.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=njpba50.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">njpba50.com</div></div><div class="port-arrow">View &#8594;</div></a>
+      <a class="port-item reveal" href="http://colleenmreeves.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=colleenmreeves.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">colleenmreeves.com</div></div><div class="port-arrow">View &#8594;</div></a>
+      <a class="port-item reveal d1" href="https://privatehomemanagement.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=privatehomemanagement.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">privatehomemanagement.com</div></div><div class="port-arrow">View &#8594;</div></a>
+      <a class="port-item reveal d2" href="https://ruthstage.org" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=ruthstage.org&sz=64" alt="" /><div class="port-text"><div class="port-domain">ruthstage.org</div></div><div class="port-arrow">View &#8594;</div></a>
+    </div>
+  </section>
+
+  <section id="impact">
+    <p class="section-label">Nonprofit Leadership</p>
+    <h2 class="section-title">Vetwork <em>Impact</em></h2>
+    <p class="impact-intro">As Director of Business Intelligence &amp; IT at Vetwork, I help compile the annual Community Impact Reports. Cumulative results for Ocean County veterans since reporting began in 2023:</p>
+    <div class="impact-stats">
+      <div class="impact-stat reveal"><div class="impact-num" data-count="2604" data-suffix="+">0</div><div class="impact-label">Services Provided</div></div>
+      <div class="impact-stat reveal d1"><div class="impact-num" data-count="1110" data-suffix="+">0</div><div class="impact-label">Food Pantry Visits</div></div>
+      <div class="impact-stat reveal d2"><div class="impact-num" data-count="718" data-suffix="+">0</div><div class="impact-label">Veteran Transports</div></div>
+      <div class="impact-stat reveal d3"><div class="impact-num" data-count="264" data-suffix="+">0</div><div class="impact-label">Housing Assists</div></div>
+    </div>
+    <div class="gc-chart" id="impact-chart" style="border-top:1px solid var(--border);">
+      <div class="gc-chart-head">
+        <div>
+          <div class="gc-chart-label">Top Programs</div>
+          <div class="gc-chart-title">Where the <em>help</em> went</div>
+        </div>
+        <div class="gc-chart-note">Cumulative 2023&ndash;2025 &middot; top 3 of 2,604</div>
+      </div>
+      <div class="gc-bars" id="impact-bars">
+        <div class="gc-bar-row"><span class="gc-bar-name">Food Pantry</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="100" data-val="1110"></div></div><span class="gc-bar-tag impact-bar-val">1,110</span></div>
+        <div class="gc-bar-row"><span class="gc-bar-name">Transports</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="65" data-val="718"></div></div><span class="gc-bar-tag impact-bar-val">718</span></div>
+        <div class="gc-bar-row"><span class="gc-bar-name">Housing</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="24" data-val="264"></div></div><span class="gc-bar-tag impact-bar-val">264</span></div>
+      </div>
+    </div>
+    <div class="techstack">
+      <span class="techstack-label">Built &amp; Maintained With</span>
+      <div class="techstack-row">
+        <span class="tech-chip reveal"><img src="https://www.google.com/s2/favicons?domain=stripe.com&sz=128" alt="" />Stripe</span>
+        <span class="tech-chip reveal d1"><img src="https://www.google.com/s2/favicons?domain=monday.com&sz=128" alt="" />Monday.com</span>
+        <span class="tech-chip reveal d2"><img src="https://www.google.com/s2/favicons?domain=workspace.google.com&sz=128" alt="" />Google Workspace</span>
+        <span class="tech-chip reveal"><img src="https://www.google.com/s2/favicons?domain=ads.google.com&sz=128" alt="" />Google Ads</span>
+        <span class="tech-chip reveal d1"><img src="https://www.google.com/s2/favicons?domain=business.google.com&sz=128" alt="" />Google Business Profile</span>
+        <span class="tech-chip reveal d2"><img src="https://www.google.com/s2/favicons?domain=squarespace.com&sz=128" alt="" />Squarespace</span>
+        <span class="tech-chip reveal"><img src="https://www.google.com/s2/favicons?domain=printful.com&sz=128" alt="" />Printful</span>
+        <span class="tech-chip reveal d1"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=128" alt="" />AI Chatbot</span>
+      </div>
+      <div class="techstack-row app-row">
+        <span class="tech-chip tech-app reveal"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=128" alt="" />App Store</span>
+        <span class="tech-chip tech-app reveal d1"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=128" alt="" />Google Play</span>
+        <span class="app-note">Vetwork mobile app shipped to both stores</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <p class="section-label">Credentials</p>
+    <h2 class="section-title">Certifications &amp; <em>Honors</em></h2>
+    <div class="certs-grid">
+      <div class="cert cert-feature reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">B.S. Business Administration &mdash; <em>Magna Cum Laude</em></div></div></div>
+      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="" /><div><div class="cert-issuer">Google</div><div class="cert-name">AI Essentials</div></div></div>
+      <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">Leveraging AI for Business</div></div></div>
+      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=128" alt="" /><div><div class="cert-issuer">Anthropic</div><div class="cert-name">AI Fluency for Nonprofits</div></div></div>
+      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128" alt="" /><div><div class="cert-issuer">Bloomberg</div><div class="cert-name">Market Concepts (BMC)</div></div></div>
+      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128" alt="" /><div><div class="cert-issuer">Bloomberg</div><div class="cert-name">Environmental Social Governance (ESG)</div></div></div>
+      <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Behavioral Finance</div></div></div>
+      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Fundamentals of Finance</div></div></div>
+      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Forensic Accounting &amp; Fraud Examination</div></div></div>
+      <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Intro to Relational Databases &amp; SQL</div></div></div>
+      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">University Honors Program</div></div></div>
+      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">Dean's List</div></div></div>
     </div>
   </section>
 
@@ -409,41 +549,6 @@
         <p class="proj-desc">Built and launched 9+ client sites spanning nonprofit, legal, accounting, and hospitality sectors. Managed technical support, CMS configuration, SEO, and multi-platform digital presence for each client.</p>
         <div class="proj-stack"><span>HTML/CSS</span><span>Squarespace</span><span>SEO</span><span>Google Workspace</span></div>
       </div>
-    </div>
-  </section>
-
-  <section id="portfolio">
-    <p class="section-label">Client Work</p>
-    <h2 class="section-title">Freelance <em>Sites</em></h2>
-    <div class="portfolio-grid">
-      <a class="port-item reveal" href="https://vetwork.org" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=vetwork.org&sz=64" alt="" /><div class="port-text"><div class="port-domain">vetwork.org</div></div><div class="port-arrow">View &#8594;</div></a>
-      <a class="port-item reveal d1" href="https://ma22.org" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=ma22.org&sz=64" alt="" /><div class="port-text"><div class="port-domain">ma22.org</div></div><div class="port-arrow">View &#8594;</div></a>
-      <a class="port-item reveal d2" href="https://www.vfwauxiliary8867.org" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=vfwauxiliary8867.org&sz=64" alt="" /><div class="port-text"><div class="port-domain">vfwauxiliary8867.org</div></div><div class="port-arrow">View &#8594;</div></a>
-      <a class="port-item reveal" href="https://mazurcpas.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=mazurcpas.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">mazurcpas.com</div></div><div class="port-arrow">View &#8594;</div></a>
-      <a class="port-item reveal d1" href="https://nufiji.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=nufiji.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">nufiji.com</div></div><div class="port-arrow">View &#8594;</div></a>
-      <a class="port-item reveal d2" href="https://njpba50.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=njpba50.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">njpba50.com</div></div><div class="port-arrow">View &#8594;</div></a>
-      <a class="port-item reveal" href="http://colleenmreeves.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=colleenmreeves.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">colleenmreeves.com</div></div><div class="port-arrow">View &#8594;</div></a>
-      <a class="port-item reveal d1" href="https://privatehomemanagement.com" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=privatehomemanagement.com&sz=64" alt="" /><div class="port-text"><div class="port-domain">privatehomemanagement.com</div></div><div class="port-arrow">View &#8594;</div></a>
-      <a class="port-item reveal d2" href="https://ruthstage.org" target="_blank" rel="noopener"><img class="port-favicon" src="https://www.google.com/s2/favicons?domain=ruthstage.org&sz=64" alt="" /><div class="port-text"><div class="port-domain">ruthstage.org</div></div><div class="port-arrow">View &#8594;</div></a>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <p class="section-label">Credentials</p>
-    <h2 class="section-title">Certifications &amp; <em>Honors</em></h2>
-    <div class="certs-grid">
-      <div class="cert cert-feature reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=64" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">B.S. Business Administration &mdash; <em>Magna Cum Laude</em></div></div></div>
-      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=google.com&sz=64" alt="" /><div><div class="cert-issuer">Google</div><div class="cert-name">AI Essentials</div></div></div>
-      <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=64" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">Leveraging AI for Business</div></div></div>
-      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=64" alt="" /><div><div class="cert-issuer">Anthropic</div><div class="cert-name">AI Fluency for Nonprofits</div></div></div>
-      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=64" alt="" /><div><div class="cert-issuer">Bloomberg</div><div class="cert-name">Market Concepts (BMC)</div></div></div>
-      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=64" alt="" /><div><div class="cert-issuer">Bloomberg</div><div class="cert-name">Environmental Social Governance (ESG)</div></div></div>
-      <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=64" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Behavioral Finance</div></div></div>
-      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=64" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Fundamentals of Finance</div></div></div>
-      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=64" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Forensic Accounting &amp; Fraud Examination</div></div></div>
-      <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=64" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Intro to Relational Databases &amp; SQL</div></div></div>
-      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=64" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">University Honors Program</div></div></div>
-      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=64" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">Dean's List</div></div></div>
     </div>
   </section>
 
@@ -524,14 +629,31 @@
       var target=parseInt(el.dataset.count), prefix=el.dataset.prefix||'', suffix=el.dataset.suffix||'', dur=1400, start=performance.now();
       (function step(now) {
         var p=Math.min((now-start)/dur, 1);
-        el.textContent=prefix+Math.round(easeOut(p)*target).toLocaleString()+suffix;
+        el.textContent=prefix+Math.round(easeOut(p)*target).toLocaleString('en-US')+suffix;
         if (p<1) requestAnimationFrame(step);
       })(start);
     }
     var statObs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) { if (e.isIntersecting && e.target.dataset.count) { animCount(e.target); statObs.unobserve(e.target); } });
     }, {threshold: 0.5});
-    document.querySelectorAll('.stat-value[data-count]').forEach(function(el) { statObs.observe(el); });
+    document.querySelectorAll('.stat-value[data-count], .impact-num[data-count]').forEach(function(el) { statObs.observe(el); });
+
+    var impactChart=document.getElementById('impact-chart');
+    if(impactChart){
+      var impFired=false;
+      var impObs=new IntersectionObserver(function(ents){
+        ents.forEach(function(e){
+          if(e.isIntersecting && !impFired){
+            impFired=true;
+            impactChart.querySelectorAll('.gc-bar-fill').forEach(function(f,i){
+              setTimeout(function(){f.style.width=(f.dataset.pct||0)+'%';},80+i*90);
+            });
+            impObs.disconnect();
+          }
+        });
+      },{threshold:.25});
+      impObs.observe(impactChart);
+    }
 
     // Card tilt
     function addTilt(sel, deg) {
@@ -580,7 +702,7 @@
       {k:['northeastern','university','school','study','student','major','degree','honors','deans','gpa','graduate','graduated','magna','cum laude'], r:"Michael graduated from Northeastern University Magna Cum Laude, with a degree in Business Administration, a Finance concentration, and a Data Science minor, completed in the University Honors Program and on the Dean's List. Northeastern's co-op program is how he landed both UBS and MIT Lincoln Lab."},
       {k:['finance','investment','banking','markets','stock','quant','trading'], r:"Finance is Michael's primary focus, from Bloomberg certifications and coursework in behavioral finance and forensic accounting, to hands-on alternative data work at UBS. He is drawn to the intersection of data and markets."},
       {k:['data science','python','pandas','numpy','analytics','machine learning','ml','ai','coding','programming'], r:"On the data side, Michael has worked with Python, Pandas, NumPy, and NLP pipelines, most notably in his Market Sentiment Risk Scorer project. His Data Science minor at Northeastern rounds out the technical foundation alongside his finance work."},
-      {k:['vetwork','nonprofit','board','volunteer','veteran'], r:"Michael has been with Vetwork, a veteran-support nonprofit, for several years as Board Director handling IT and Business Analytics. He manages their tech stack, social media, and annual impact reporting. It is a cause he genuinely cares about."},
+      {k:['vetwork','nonprofit','board','volunteer','veteran','impact','services','pantry'], r:"Michael is Director of Business Intelligence and IT at Vetwork, a nonprofit supporting Ocean County veterans, where he's served since 2022. He manages their tech stack, social media, and annual Community Impact Reports. Since 2023, Vetwork has provided 2,600+ services to local veterans, including 1,100+ food pantry visits and 700+ transports. See the Impact section for the breakdown."},
       {k:['ml technology','ml tech','freelance','web','website','sites','squarespace','seo','clients','developer','build'], r:"ML Technology Services is Michael's web development firm, active since 2021, specializing in web development and SEO. He has built 9+ client sites across nonprofits, law, accounting, and hospitality. Check the Portfolio section to see the work."},
       {k:['project','portfolio','built','sentiment','risk','scorer','capstone','research','covid','athletics'], r:"Michael has two standout projects. The Market Sentiment Risk Scorer uses NLP to blend financial news sentiment with live stock data into buy/sell signals, built in Python. His capstone research examined investment in athletics post-COVID and was recognized as peer-review quality work."},
       {k:['skill','tech','stack','tool','language','excel','bloomberg','terminal','know','do'], r:"Michael is comfortable across a broad stack: Python, VBA, SAP, SQL, HTML/CSS, Squarespace, Google Workspace, and Bloomberg Terminal. He bridges finance and tech, equally at home in a spreadsheet or a codebase."},

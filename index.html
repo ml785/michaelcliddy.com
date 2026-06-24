@@ -130,7 +130,7 @@
     .cert-feature{background:linear-gradient(135deg,rgba(126,184,212,.08),rgba(126,184,212,.02));box-shadow:inset 3px 0 0 var(--blue);}
     .cert-feature:hover{background:linear-gradient(135deg,rgba(126,184,212,.13),rgba(126,184,212,.04));}
     .cert-name em{color:var(--blue-bright);font-style:italic;font-weight:500;}
-    .cert-icon{width:54px;height:54px;border-radius:10px;object-fit:contain;flex-shrink:0;background:rgba(255,255,255,.07);border:1px solid var(--border);padding:9px;}
+    .cert-icon{width:40px;height:40px;object-fit:contain;flex-shrink:0;}
     .cert-issuer{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;}
     .cert-name{font-family:var(--serif);font-size:15px;font-weight:400;color:var(--text);line-height:1.3;}
     #contact{background:var(--surface);text-align:center;}
@@ -241,13 +241,13 @@
     @media(max-width:400px){.impact-stats{grid-template-columns:1fr;}}
     /* --- Education --- */
     .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:28px;}
-    .edu-card{background:var(--surface);padding:30px 26px;display:flex;flex-direction:column;gap:6px;transition:background .2s;}
+    .edu-card{background:var(--surface);padding:30px 26px;display:flex;flex-direction:column;gap:6px;text-align:center;transition:background .2s;}
     .edu-card:hover{background:var(--surface-2);}
-    .edu-feature{background:linear-gradient(150deg,rgba(126,184,212,.10),rgba(126,184,212,.02));box-shadow:inset 3px 0 0 var(--blue);}
+    .edu-feature{background:linear-gradient(150deg,rgba(126,184,212,.10),rgba(126,184,212,.02));box-shadow:inset 0 3px 0 var(--blue);}
     .edu-feature:hover{background:linear-gradient(150deg,rgba(126,184,212,.15),rgba(126,184,212,.04));}
-    .edu-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;min-height:48px;}
-    .edu-logo{width:48px;height:48px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,.06);padding:6px;}
-    .edu-badge{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-bright);background:var(--blue-dim);border:1px solid rgba(126,184,212,.25);padding:5px 10px;border-radius:20px;white-space:nowrap;}
+    .edu-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;min-height:60px;position:relative;}
+    .edu-logo{height:64px;width:auto;max-width:130px;object-fit:contain;}
+    .edu-badge{position:absolute;top:0;right:0;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-bright);background:var(--blue-dim);border:1px solid rgba(126,184,212,.25);padding:5px 10px;border-radius:20px;white-space:nowrap;}
     .edu-school{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--text);line-height:1.15;}
     .edu-feature .edu-school{color:var(--blue-bright);}
     .edu-degree{font-size:13px;font-weight:500;color:var(--text);}
@@ -265,7 +265,10 @@
     .techstack-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px;}
     .tech-chip{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:500;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:9px 16px 9px 11px;transition:border-color .2s,background .2s;}
     .tech-chip:hover{border-color:var(--blue-dim);background:var(--surface-2);}
-    .tech-chip img{width:20px;height:20px;border-radius:4px;object-fit:contain;}
+    .tech-chip img{width:18px;height:18px;object-fit:contain;}
+    .tech-logo-only{padding:8px 16px;background:#fff;border-color:rgba(255,255,255,.15);}
+    .tech-logo-only:hover{background:#f4f6f8;border-color:rgba(255,255,255,.3);}
+    .tech-logo-only img{width:auto;height:24px;max-width:150px;}
     .tech-svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
     .app-row{margin-bottom:0;}
     .tech-app{background:var(--blue-dim);border-color:rgba(126,184,212,.3);color:var(--blue-bright);}
@@ -345,6 +348,48 @@
     </div>
   </section>
 
+  <!-- Live Portfolio Reach Counter -->
+  <div class="gc-banner">
+    <div class="gc-banner-left">
+      <div class="gc-banner-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+      <div>
+        <div class="gc-banner-label">Live Portfolio Reach</div>
+        <div class="gc-banner-title">Real-time visitors across <em>every site I've built</em></div>
+      </div>
+    </div>
+    <div class="gc-banner-metrics">
+      <div class="gc-metric">
+        <span class="gc-stat-num gc-loading" id="gc-week">&mdash;</span>
+        <span class="gc-metric-label">This Week</span>
+      </div>
+      <div class="gc-metric">
+        <span class="gc-stat-num gc-loading" id="gc-total">&mdash;</span>
+        <span class="gc-metric-label">All Time</span>
+      </div>
+    </div>
+    <div class="gc-live"><span class="gc-dot"></span>Live</div>
+  </div>
+
+  <!-- Skills Proficiency Chart -->
+  <div class="gc-chart" id="skills-chart">
+    <div class="gc-chart-head">
+      <div>
+        <div class="gc-chart-label">Technical Toolkit</div>
+        <div class="gc-chart-title">Skills &amp; <em>proficiency</em></div>
+      </div>
+      <div class="gc-chart-note">Finance &middot; Data &middot; Development</div>
+    </div>
+    <div class="gc-bars">
+      <div class="gc-bar-row"><span class="gc-bar-name">Excel</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="92"></div></div><span class="gc-bar-tag">Finance</span></div>
+      <div class="gc-bar-row"><span class="gc-bar-name">Python</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="88"></div></div><span class="gc-bar-tag">Data</span></div>
+      <div class="gc-bar-row"><span class="gc-bar-name">HTML / CSS</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="85"></div></div><span class="gc-bar-tag">Dev</span></div>
+      <div class="gc-bar-row"><span class="gc-bar-name">VBA</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="80"></div></div><span class="gc-bar-tag">Data</span></div>
+      <div class="gc-bar-row"><span class="gc-bar-name">SQL</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="76"></div></div><span class="gc-bar-tag">Data</span></div>
+      <div class="gc-bar-row"><span class="gc-bar-name">SAP</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="68"></div></div><span class="gc-bar-tag">Finance</span></div>
+      <div class="gc-bar-row"><span class="gc-bar-name">Bloomberg</span><div class="gc-bar-track"><div class="gc-bar-fill" data-pct="64"></div></div><span class="gc-bar-tag">Finance</span></div>
+    </div>
+  </div>
+
   <section id="experience">
     <p class="section-label">Career</p>
     <h2 class="section-title">Experience &amp; <em>Timeline</em></h2>
@@ -400,7 +445,7 @@
     <div class="edu-grid">
       <div class="edu-card edu-feature reveal">
         <div class="edu-head">
-          <img class="edu-logo" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="Northeastern University" />
+          <img class="edu-logo" src="NU_RGB_seal_R.png" alt="Northeastern University" />
           <span class="edu-badge">Magna Cum Laude</span>
         </div>
         <div class="edu-school">Northeastern University</div>
@@ -410,7 +455,7 @@
       </div>
       <div class="edu-card reveal d1">
         <div class="edu-head">
-          <img class="edu-logo" src="https://www.google.com/s2/favicons?domain=johncabot.edu&sz=128" alt="John Cabot University" />
+          <img class="edu-logo" src="jcu_logo.png" alt="John Cabot University" />
         </div>
         <div class="edu-school">John Cabot University</div>
         <div class="edu-degree">N.U.in Program &middot; Rome, Italy</div>
@@ -419,7 +464,7 @@
       </div>
       <div class="edu-card reveal d2">
         <div class="edu-head">
-          <img class="edu-logo" src="https://www.google.com/s2/favicons?domain=rbchs.org&sz=128" alt="Red Bank Catholic High School" />
+          <img class="edu-logo" src="rbc_logo.jpg" alt="Red Bank Catholic High School" />
         </div>
         <div class="edu-school">Red Bank Catholic</div>
         <div class="edu-degree">High School Diploma</div>
@@ -488,18 +533,18 @@
     <div class="techstack">
       <span class="techstack-label">Built &amp; Maintained With</span>
       <div class="techstack-row">
-        <span class="tech-chip reveal"><img src="https://www.google.com/s2/favicons?domain=stripe.com&sz=128" alt="" />Stripe</span>
-        <span class="tech-chip reveal d1"><img src="https://www.google.com/s2/favicons?domain=monday.com&sz=128" alt="" />Monday.com</span>
-        <span class="tech-chip reveal d2"><img src="https://www.google.com/s2/favicons?domain=workspace.google.com&sz=128" alt="" />Google Workspace</span>
-        <span class="tech-chip reveal"><img src="https://www.google.com/s2/favicons?domain=ads.google.com&sz=128" alt="" />Google Ads</span>
-        <span class="tech-chip reveal d1"><img src="https://www.google.com/s2/favicons?domain=business.google.com&sz=128" alt="" />Google Business Profile</span>
-        <span class="tech-chip reveal d2"><img src="https://www.google.com/s2/favicons?domain=squarespace.com&sz=128" alt="" />Squarespace</span>
-        <span class="tech-chip reveal"><img src="https://www.google.com/s2/favicons?domain=printful.com&sz=128" alt="" />Printful</span>
-        <span class="tech-chip reveal d1"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=128" alt="" />AI Chatbot</span>
+        <span class="tech-chip reveal"><img src="https://cdn.simpleicons.org/stripe/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=stripe.com&sz=128'" alt="" />Stripe</span>
+        <span class="tech-chip reveal d1"><img src="https://cdn.simpleicons.org/mondaydotcom/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=monday.com&sz=128'" alt="" />Monday.com</span>
+        <span class="tech-chip tech-logo-only reveal d2"><img src="Google-Workspace-Emblem.png" alt="Google Workspace" /></span>
+        <span class="tech-chip tech-logo-only reveal"><img src="google_ads_logo.png" alt="Google Ads" /></span>
+        <span class="tech-chip tech-logo-only reveal d1"><img src="google-biz-profile.webp" alt="Google Business Profile" /></span>
+        <span class="tech-chip reveal d2"><img src="https://cdn.simpleicons.org/squarespace/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=squarespace.com&sz=128'" alt="" />Squarespace</span>
+        <span class="tech-chip reveal"><img src="https://cdn.simpleicons.org/printful/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=printful.com&sz=128'" alt="" />Printful</span>
+        <span class="tech-chip reveal d1"><img src="https://cdn.simpleicons.org/openai/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=openai.com&sz=128'" alt="" />AI Chatbot</span>
       </div>
       <div class="techstack-row app-row">
-        <span class="tech-chip tech-app reveal"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=128" alt="" />App Store</span>
-        <span class="tech-chip tech-app reveal d1"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=128" alt="" />Google Play</span>
+        <span class="tech-chip tech-app reveal"><img src="https://cdn.simpleicons.org/apple/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=apple.com&sz=128'" alt="" />App Store</span>
+        <span class="tech-chip tech-app reveal d1"><img src="https://cdn.simpleicons.org/googleplay/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=play.google.com&sz=128'" alt="" />Google Play</span>
         <span class="app-note">Vetwork mobile app shipped to both stores</span>
       </div>
     </div>
@@ -510,15 +555,15 @@
     <h2 class="section-title">Certifications &amp; <em>Honors</em></h2>
     <div class="certs-grid">
       <div class="cert cert-feature reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">B.S. Business Administration &mdash; <em>Magna Cum Laude</em></div></div></div>
-      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="" /><div><div class="cert-issuer">Google</div><div class="cert-name">AI Essentials</div></div></div>
+      <div class="cert reveal d1"><img class="cert-icon" src="https://cdn.simpleicons.org/google/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=google.com&sz=128'" alt="" /><div><div class="cert-issuer">Google</div><div class="cert-name">AI Essentials</div></div></div>
       <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">Leveraging AI for Business</div></div></div>
-      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=128" alt="" /><div><div class="cert-issuer">Anthropic</div><div class="cert-name">AI Fluency for Nonprofits</div></div></div>
-      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128" alt="" /><div><div class="cert-issuer">Bloomberg</div><div class="cert-name">Market Concepts (BMC)</div></div></div>
-      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128" alt="" /><div><div class="cert-issuer">Bloomberg</div><div class="cert-name">Environmental Social Governance (ESG)</div></div></div>
-      <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Behavioral Finance</div></div></div>
-      <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Fundamentals of Finance</div></div></div>
-      <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Forensic Accounting &amp; Fraud Examination</div></div></div>
-      <div class="cert reveal d2"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Intro to Relational Databases &amp; SQL</div></div></div>
+      <div class="cert reveal"><img class="cert-icon" src="https://cdn.simpleicons.org/anthropic/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=anthropic.com&sz=128'" alt="" /><div><div class="cert-issuer">Anthropic</div><div class="cert-name">AI Fluency for Nonprofits</div></div></div>
+      <div class="cert reveal"><img class="cert-icon" src="https://cdn.simpleicons.org/bloomberg/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128'" alt="" /><div><div class="cert-issuer">Bloomberg</div><div class="cert-name">Market Concepts (BMC)</div></div></div>
+      <div class="cert reveal d1"><img class="cert-icon" src="https://cdn.simpleicons.org/bloomberg/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128'" alt="" /><div><div class="cert-issuer">Bloomberg</div><div class="cert-name">Environmental Social Governance (ESG)</div></div></div>
+      <div class="cert reveal d2"><img class="cert-icon" src="https://cdn.simpleicons.org/coursera/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=coursera.org&sz=128'" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Behavioral Finance</div></div></div>
+      <div class="cert reveal"><img class="cert-icon" src="https://cdn.simpleicons.org/coursera/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=coursera.org&sz=128'" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Fundamentals of Finance</div></div></div>
+      <div class="cert reveal d1"><img class="cert-icon" src="https://cdn.simpleicons.org/coursera/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=coursera.org&sz=128'" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Forensic Accounting &amp; Fraud Examination</div></div></div>
+      <div class="cert reveal d2"><img class="cert-icon" src="https://cdn.simpleicons.org/coursera/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=coursera.org&sz=128'" alt="" /><div><div class="cert-issuer">Coursera</div><div class="cert-name">Intro to Relational Databases &amp; SQL</div></div></div>
       <div class="cert reveal"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">University Honors Program</div></div></div>
       <div class="cert reveal d1"><img class="cert-icon" src="https://www.google.com/s2/favicons?domain=northeastern.edu&sz=128" alt="" /><div><div class="cert-issuer">Northeastern University</div><div class="cert-name">Dean's List</div></div></div>
     </div>

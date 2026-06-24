@@ -58,8 +58,11 @@
     .mobile-menu a:hover{color:var(--blue-bright);}
     #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 52px 80px;position:relative;overflow:hidden;}
     .hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 65% at 68% 50%,rgba(14,40,80,.65) 0%,transparent 65%),radial-gradient(ellipse 30% 40% at 15% 85%,rgba(10,30,60,.35) 0%,transparent 60%);}
-    .hero-grid-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border-soft) 1px,transparent 1px),linear-gradient(90deg,var(--border-soft) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 20%,transparent 80%);}
-    .hero-inner{position:relative;display:block;align-items:center;width:100%;max-width:1100px;}
+    .hero-grid-lines{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(var(--border-soft) 1px,transparent 1px),linear-gradient(90deg,var(--border-soft) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 20%,transparent 80%);}
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;}
+    .hero-video-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(7,18,34,.72) 0%,rgba(7,18,34,.55) 40%,rgba(7,18,34,.78) 100%),radial-gradient(ellipse 60% 70% at 30% 50%,rgba(7,18,34,.55) 0%,transparent 70%);}
+    @media(prefers-reduced-motion:reduce){.hero-video{display:none;}.hero-video-overlay{display:none;}}
+    .hero-inner{position:relative;z-index:2;display:block;align-items:center;width:100%;max-width:1100px;}
     .hero-left{position:relative;z-index:1;padding-right:464px;}
     .hero-right{position:absolute;top:50%;right:0;transform:translateY(-50%);width:400px;z-index:1;}
     .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
@@ -247,7 +250,7 @@
     .edu-feature:hover{background:linear-gradient(150deg,rgba(126,184,212,.15),rgba(126,184,212,.04));}
     .edu-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;min-height:60px;position:relative;}
     .edu-logo{height:64px;width:auto;max-width:130px;object-fit:contain;}
-    .edu-badge{position:absolute;top:0;right:0;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-bright);background:var(--blue-dim);border:1px solid rgba(126,184,212,.25);padding:5px 10px;border-radius:20px;white-space:nowrap;}
+    .edu-badge{display:inline-block;align-self:center;margin:6px 0 4px;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-bright);background:var(--blue-dim);border:1px solid rgba(126,184,212,.25);padding:5px 12px;border-radius:20px;white-space:nowrap;}
     .edu-school{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--text);line-height:1.15;}
     .edu-feature .edu-school{color:var(--blue-bright);}
     .edu-degree{font-size:13px;font-weight:500;color:var(--text);}
@@ -266,9 +269,6 @@
     .tech-chip{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:500;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:9px 16px 9px 11px;transition:border-color .2s,background .2s;}
     .tech-chip:hover{border-color:var(--blue-dim);background:var(--surface-2);}
     .tech-chip img{width:18px;height:18px;object-fit:contain;}
-    .tech-logo-only{padding:8px 16px;background:#fff;border-color:rgba(255,255,255,.15);}
-    .tech-logo-only:hover{background:#f4f6f8;border-color:rgba(255,255,255,.3);}
-    .tech-logo-only img{width:auto;height:24px;max-width:150px;}
     .tech-svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
     .app-row{margin-bottom:0;}
     .tech-app{background:var(--blue-dim);border-color:rgba(126,184,212,.3);color:var(--blue-bright);}
@@ -327,6 +327,10 @@
 
   <section id="hero">
     <div class="hero-bg"></div>
+    <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+      <source src="hero_vid.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-video-overlay"></div>
     <div class="hero-grid-lines"></div>
     <div class="hero-inner">
       <div class="hero-left">
@@ -446,9 +450,9 @@
       <div class="edu-card edu-feature reveal">
         <div class="edu-head">
           <img class="edu-logo" src="NU_RGB_seal_R.png" alt="Northeastern University" />
-          <span class="edu-badge">Magna Cum Laude</span>
         </div>
         <div class="edu-school">Northeastern University</div>
+        <span class="edu-badge">Magna Cum Laude</span>
         <div class="edu-degree">B.S. Business Administration</div>
         <div class="edu-detail">Finance Concentration &middot; Data Science Minor</div>
         <div class="edu-meta">University Honors Program &middot; Dean's List</div>
@@ -535,9 +539,9 @@
       <div class="techstack-row">
         <span class="tech-chip reveal"><img src="https://cdn.simpleicons.org/stripe/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=stripe.com&sz=128'" alt="" />Stripe</span>
         <span class="tech-chip reveal d1"><img src="https://cdn.simpleicons.org/mondaydotcom/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=monday.com&sz=128'" alt="" />Monday.com</span>
-        <span class="tech-chip tech-logo-only reveal d2"><img src="Google-Workspace-Emblem.png" alt="Google Workspace" /></span>
-        <span class="tech-chip tech-logo-only reveal"><img src="google_ads_logo.png" alt="Google Ads" /></span>
-        <span class="tech-chip tech-logo-only reveal d1"><img src="google-biz-profile.webp" alt="Google Business Profile" /></span>
+        <span class="tech-chip reveal d2"><img src="https://cdn.simpleicons.org/google" alt="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=workspace.google.com&sz=128'" />Google Workspace</span>
+        <span class="tech-chip reveal"><img src="Google-AdWords-logo.png" alt="" />Google Ads</span>
+        <span class="tech-chip reveal d1"><img src="google-business-logo.svg" alt="" />Google Business Profile</span>
         <span class="tech-chip reveal d2"><img src="https://cdn.simpleicons.org/squarespace/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=squarespace.com&sz=128'" alt="" />Squarespace</span>
         <span class="tech-chip reveal"><img src="https://cdn.simpleicons.org/printful/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=printful.com&sz=128'" alt="" />Printful</span>
         <span class="tech-chip reveal d1"><img src="https://cdn.simpleicons.org/openai/7eb8d4" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=openai.com&sz=128'" alt="" />AI Chatbot</span>
